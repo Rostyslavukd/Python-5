@@ -1,0 +1,56 @@
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.screenmanager import ScreenManager, Screen
+
+class MainScreen(Screen):
+    def __init__(self, **kwargs):
+        super(MainScreen, self).__init__(**kwargs)
+        self.add_widget(Button(text='Go to Screen 4', on_press=self.go_to_screen4))
+
+    def go_to_screen4(self, instance):
+        self.manager.current = 'screen4'
+
+class Screen1(Screen):
+    def __init__(self, **kwargs):
+        super(Screen1, self).__init__(**kwargs)
+        self.add_widget(Button(text='Back to Main', on_press=self.back_to_main))
+
+    def back_to_main(self, instance):
+        self.manager.current = 'main'
+
+class Screen2(Screen):
+    def __init__(self, **kwargs):
+        super(Screen2, self).__init__(**kwargs)
+        self.add_widget(Button(text='Back to Main', on_press=self.back_to_main))
+
+    def back_to_main(self, instance):
+        self.manager.current = 'main'
+
+class Screen3(Screen):
+    def __init__(self, **kwargs):
+        super(Screen3, self).__init__(**kwargs)
+        self.add_widget(Button(text='Back to Main', on_press=self.back_to_main))
+
+    def back_to_main(self, instance):
+        self.manager.current = 'main'
+
+class Screen4(Screen):
+    def __init__(self, **kwargs):
+        super(Screen4, self).__init__(**kwargs)
+        self.add_widget(Button(text='Back to Main', on_press=self.back_to_main))
+
+    def back_to_main(self, instance):
+        self.manager.current = 'main'
+
+class MyApp(App):
+    def build(self):
+        sm = ScreenManager()
+        sm.add_widget(MainScreen(name='main'))
+        sm.add_widget(Screen1(name='screen1'))
+        sm.add_widget(Screen2(name='screen2'))
+        sm.add_widget(Screen3(name='screen3'))
+        sm.add_widget(Screen4(name='screen4'))
+        return sm
+
+if __name__ == '__main__':
+    MyApp().run()
